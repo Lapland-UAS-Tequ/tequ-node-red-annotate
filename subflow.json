@@ -2,7 +2,7 @@
     "id": "6d1a118a3f3e0ff1",
     "type": "subflow",
     "name": "[IMG] Annotate",
-    "info": "Annotates object detection prediction results.\r\n\r\nThis node is developed to work with other Tequ nodes.\r\n- Expects image in \"msg.payload\"\r\n- Expects prediction result in \"msg.data.properties.computer_vision.result\"\r\n- Expects prediction labels in \"msg.data.properties.computer_vision.labels\"\r\n\r\nPrediction result is expected to be array of objects\r\n\r\n```\r\n{\r\n\t\"bbox\":[x,y,w,h],\r\n\r\n\t\"class\":\"name\",\r\n\r\n\t\"label\":\"name\",\r\n\r\n\t\"id\":0,\r\n\r\n\t\"score\":0.643\r\n\r\n}\r\n```\r\n\r\nPrediction labels is expected to be array of strings: [\"label1\",\"label2\"]\r\n\r\n\r\nAnnotation threshold is looked up from:\r\n1. global variable \"settings\" property \"threshold\"\r\n2. input \"msg\" property \"threshold\"\r\n3. env variable \"threshold\" in node configuration\r\n\r\nDependencies\r\n- https://www.npmjs.com/package/sharp\r\n- https://www.npmjs.com/package/node-canvas\r\n\r\nInstallation of sharp & canvas can be tricky in some environments.",
+    "info": "Annotates object detection prediction results.\r\n\r\nThis node is developed to work with other Tequ nodes.\r\n- Expects image in \"msg.payload\"\r\n- Expects prediction result in \"msg.data.properties.computer_vision.result\"\r\n- Expects prediction labels in \"msg.data.properties.computer_vision.labels\"\r\n- Uses canvas for annotation\r\n- Uses sharp for thumbnail generation \r\n\r\nPrediction result is expected to be array of objects\r\n\r\n```\r\n{\r\n\t\"bbox\":[x,y,w,h],\r\n\r\n\t\"class\":\"name\",\r\n\r\n\t\"label\":\"name\",\r\n\r\n\t\"id\":0,\r\n\r\n\t\"score\":0.643\r\n\r\n}\r\n```\r\n\r\nPrediction labels is expected to be array of strings: [\"label1\",\"label2\"]\r\n\r\n\r\nAnnotation threshold is looked up from:\r\n1. global variable \"settings\" property \"threshold\"\r\n2. input \"msg\" property \"threshold\"\r\n3. env variable \"threshold\" in node configuration\r\n\r\nDependencies\r\n- https://www.npmjs.com/package/sharp\r\n- https://www.npmjs.com/package/node-canvas\r\n\r\nInstallation of sharp & canvas can be tricky in some environments.",
     "category": "Tequ-API Client",
     "in": [
         {
@@ -386,13 +386,10 @@
                     "type": "num"
                 }
             ],
-            "x": 1160,
-            "y": 220,
+            "x": 360,
+            "y": 580,
             "wires": [
-                [
-                    "bcd83448bf116acb",
-                    "b26762b6ebfbe8c7"
-                ]
+                []
             ]
         }
     ]

@@ -7,7 +7,7 @@ Annotates prediction results using canvas.
 
 Run the following command in your Node-RED user directory - typically `~/.node-red`
 
-        npm install Lapland-UAS-Tequ/tequ-node-red-annotate
+        npm install tequ-node-red-annotate
 
 ## Information
 
@@ -17,6 +17,8 @@ This node is developed to work with other Tequ nodes.
 - Expects image in "msg.payload"
 - Expects prediction result in "msg.data.properties.computer_vision.result"
 - Expects prediction labels in "msg.data.properties.computer_vision.labels"
+- Uses canvas for annotation
+- Uses sharp for thumbnail generation 
 
 Prediction result is expected to be array of objects
 
